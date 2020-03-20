@@ -1,18 +1,27 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput, TouchableHighlight } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import Input from './Components/Input/Input'
+import Tinder from './Components/Tinder/Tinder'
 
 export default class App extends React.Component {
-  increaseByOne = () => {
-    console.log("pressed");
-  };
+
+  state = {
+    value: '',
+    jokes: []
+  }
 
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight onPress={this.increaseByOne} style={styles.button}>
-          <Text>Submit</Text>
-        </TouchableHighlight>
-        <Text>OPEN up App.js to start working on your app!</Text>
+        <Input
+          updateJokes={(jokes) => this.setState({jokes: jokes})}
+          value={this.state.value}
+          onChange={(value) => this.setState( {value: value})}
+          style={styles.container}
+        />
+        <Tinder
+          jokes={this.state.jokes}
+        />
       </View>
     );
   }
@@ -26,7 +35,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   button: {
-    width: 100,
-    height: 50
+    height: 100,
+    width: 50,
   }
 });
