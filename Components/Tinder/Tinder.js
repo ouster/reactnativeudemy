@@ -8,9 +8,9 @@ import SwipeCards from 'react-native-swipe-cards';
 
 class Card extends React.Component {
   render() {
-    return(
+    return (
       <View style={styles.card}>
-        <Text>this.props.joke</Text>
+        <Text>{this.props.joke}</Text>
       </View>
     )
   }
@@ -18,11 +18,13 @@ class Card extends React.Component {
 
 class NoMoreCards extends React.Component {
   render() {
-    return(
-      <View style={styles.card}><Text>No more jokes</Text></View>
+    return (
+      <View>
+        <Text>No Jokes To Show</Text>
+      </View>
     )
   }
-}
+} 
 
 export default class Tinder extends React.Component {
 
